@@ -13,7 +13,6 @@ def moverImagenes():
     for filename in os.listdir(folderAmover):
         name, extension = os.path.splitext(folderAmover + filename)
 
-        
         if extension in [".png", ".jpg", ".jpeg", ".webp"]:
             picture = Image.open(folderAmover + filename)
             picture.save(folderImagenesMovidas + filename, optimize=True, quality=60)
