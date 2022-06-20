@@ -3,10 +3,10 @@ from statistics import quantiles
 from PIL import Image
 import os
 
-folderAmover = "Users/Estuardo/Documents/Software/Move-File/ArchivosAMover/" # Carpeta fuente
-folderImagenesMovidas = "Users/Estuardo/Documents/Software/Move-File/CarpetaImagenesMovidas/" # Carpeta donde se moveran los archivos png|jpg|jpeg|webp
-folderAudiosMovidos = "Users/Estuardo/Documents/Software/Move-File/CarpetaAudiosMovidos/" # Carpeta donde se moveran los archivos mp3
-folderTXTMovidos = "Users/Estuardo/Documents/Software/Move-File/CarpetaTXTMovidos/" #Carpeta donde se moveran los archvios TXT
+folderAmover = r"C:/Users/Estuardo/Documents/Softwares/Move-File/ArchivosAMover/" # Carpeta fuente
+folderImagenesMovidas = r"C:/Users/Estuardo/Documents/Softwares/Move-File/CarpetaImagenesMovidas/" # Carpeta donde se moveran los archivos png|jpg|jpeg|webp
+folderAudiosMovidos = r"C:/Users/Estuardo/Documents/Softwares/Move-File/CarpetaAudiosMovidos/" # Carpeta donde se moveran los archivos mp3
+folderTXTMovidos = r"C:/Users/Estuardo/Documents/Softwares/Move-File/CarpetaTXTMovidos/" #Carpeta donde se moveran los archvios TXT
 
 if __name__ == "__main__":
     for filename in os.listdir(folderAmover):
@@ -15,14 +15,16 @@ if __name__ == "__main__":
         # Se moveran las extensiones .png|.jpg|.jpeg.webp a la carpeta asignada en folderImagenesMovidas
         if extension in [".png", ".jpg", ".jpeg", ".webp"]:
             picture = Image.open(folderAmover + filename)
-            picture.save(folderImagenesMovidas + "compressed_" + filename, optimize=True, quality=60)
+            picture.save(folderImagenesMovidas + filename, optimize=True, quality=60)
             os.remove(folderAmover + filename)
             print(name + ": " + extension)
 
         # Se moveran los archivos de audio a la carpeta folderAudiosMovidos
         if extension in [".mp3"]:
             os.rename(folderAmover + filename, folderAudiosMovidos + filename)
+            print(name + ": " + extension)
 
         # Se moveran los archivos TXT a la carpeta folderTXTMovidos
         if extension in [".txt"]:
             os.rename(folderAmover + filename, folderTXTMovidos + filename)
+            print(name + ": " + extension)
