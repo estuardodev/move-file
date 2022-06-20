@@ -22,3 +22,7 @@ if __name__ == "__main__":
         # Se moveran los archivos de audio a la carpeta folderAudiosMovidos
         if extension in [".mp3"]:
             os.rename(folderAmover + filename, folderAudiosMovidos + filename)
+
+        # Se moveran los archivos TXT a la carpeta folderTXTMovidos
+        if extension in [".txt"]:
+            os.rename(folderAmover + filename, folderTXTMovidos + filename)
