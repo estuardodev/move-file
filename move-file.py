@@ -18,3 +18,7 @@ if __name__ == "__main__":
             picture.save(folderImagenesMovidas + "compressed_" + filename, optimize=True, quality=60)
             os.remove(folderAmover + filename)
             print(name + ": " + extension)
+
+        # Se moveran los archivos de audio a la carpeta folderAudiosMovidos
+        if extension in [".mp3"]:
+            os.rename(folderAmover + filename, folderAudiosMovidos + filename)
