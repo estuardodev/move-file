@@ -8,23 +8,37 @@ folderImagenesMovidas = r"C:/Users/Estuardo/Documents/Softwares/Move-File/Carpet
 folderAudiosMovidos = r"C:/Users/Estuardo/Documents/Softwares/Move-File/CarpetaAudiosMovidos/" # Carpeta donde se moveran los archivos mp3
 folderTXTMovidos = r"C:/Users/Estuardo/Documents/Softwares/Move-File/CarpetaTXTMovidos/" #Carpeta donde se moveran los archvios TXT
 
-if __name__ == "__main__":
+# Se moveran las extensiones .png|.jpg|.jpeg.webp a la carpeta asignada en folderImagenesMovidas
+def moverImagenes():
     for filename in os.listdir(folderAmover):
         name, extension = os.path.splitext(folderAmover + filename)
 
-        # Se moveran las extensiones .png|.jpg|.jpeg.webp a la carpeta asignada en folderImagenesMovidas
+        
         if extension in [".png", ".jpg", ".jpeg", ".webp"]:
             picture = Image.open(folderAmover + filename)
             picture.save(folderImagenesMovidas + filename, optimize=True, quality=60)
             os.remove(folderAmover + filename)
-            print(name + ": " + extension)
+            print(name + ": " + extension)    
 
-        # Se moveran los archivos de audio a la carpeta folderAudiosMovidos
+# Se moveran los archivos de audio a la carpeta folderAudiosMovidos
+def moverAudios():
+    for filename in os.listdir(folderAmover):
+        name, extension = os.path.splitext(folderAmover + filename)
+        
         if extension in [".mp3"]:
             os.rename(folderAmover + filename, folderAudiosMovidos + filename)
             print(name + ": " + extension)
 
-        # Se moveran los archivos TXT a la carpeta folderTXTMovidos
+# Se moveran los archivos TXT a la carpeta folderTXTMovidos
+def moverTXT():
+    for filename in os.listdir(folderAmover):
+        name, extension = os.path.splitext(folderAmover + filename)
+        
         if extension in [".txt"]:
             os.rename(folderAmover + filename, folderTXTMovidos + filename)
             print(name + ": " + extension)
+
+if __name__ == "__main__":
+    moverImagenes()
+    moverAudios()
+    moverTXT()
