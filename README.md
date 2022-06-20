@@ -21,7 +21,7 @@ Mi directorio es:
 Deveras sustituir "/Estuardo/Documents/Softwares/Move-File/CarpetaImagenesMovidas/" por tu carpeta donde se moveran los archivos (Se debe de hacer con cada 1 de las variables)
 
 ## Agregar Formatos
-Si se desean agregar nuevos formatos de archivos puedes hacer lo siguiente:
+Si se desean agregar nuevos formatos de archivos puedes hacer lo siguiente: 
 Creas una variable con el destino:
 `folderUbicacion = r"C:/Users/TuUsuario/Destino/Destino/`
 
